@@ -27,3 +27,14 @@ Below is a snippet for setting up Apache on remote servers.
       name: httpd 
       enabled: yes 
 ```
+
+## Simple playbook for storing a message
+Below is a snippet for storing a welcome message
+```yml
+---
+- name: Simple Welcome message 
+  hosts: webservers
+  tasks:
+    - name: Create test file '/tmp/welcome.txt'
+      shell: echo -e "Welcome $(whoami)! Your unit is $(hostname -f)\n" >> /tmp/welcome.txt
+```
