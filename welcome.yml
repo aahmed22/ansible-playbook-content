@@ -1,0 +1,6 @@
+---
+- name: Simple Welcome message 
+  hosts: webservers
+  tasks:
+    - name: Create test file '/tmp/welcome.txt'
+      shell: echo -e "Welcome $(whoami)! Your unit is $(hostname -f)\n" >> /tmp/welcome.txt
