@@ -13,7 +13,7 @@ alternatives --set python /usr/bin/python3
 python --version
 yum -y install python3-pip
 useradd -p $(openssl passwd ********) ansible 
-echo "ansible ALL=(ALL) ALL" >> /etc/sudoers
+echo "ansible ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 sed -ie 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 service sshd reload
 
