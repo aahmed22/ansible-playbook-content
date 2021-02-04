@@ -57,6 +57,25 @@ Below is a snippet for setting up Apache on remote servers.
       enabled: yes 
 ```
 
+## Playbook for installing Nginx HTTP Server
+Below is a snippet for installing Nginx
+
+```yml
+- hosts: nginx_servers
+  become: yes
+  
+  tasks:   
+  - name: Install nginx  
+    yum: 
+      name: nginx
+      state: present
+       
+  - name: Start nginx  
+    service:
+      name: nginx 
+      state: started 
+```
+
 ## Simple playbook for storing a message
 Below is a snippet for storing a welcome message
 ```yml
